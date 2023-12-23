@@ -1,4 +1,4 @@
-package solutions;
+package solutions.amazon;
 
 /**
  * NO.1603 Design Parking System

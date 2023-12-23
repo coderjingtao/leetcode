@@ -1,4 +1,4 @@
-package solutions;
+package solutions.amazon;
 
 import java.util.Arrays;
 
