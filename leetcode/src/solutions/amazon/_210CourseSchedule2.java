@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * 210 Course Schedule 2
- * Keywords: directed graph
+ * Keywords: Directed Graph, Topological Sorting
  * Difficulty: Medium
  * Company: TikTok, Amazon, Google, Apple, Microsoft
  */
