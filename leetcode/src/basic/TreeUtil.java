@@ -1,5 +1,8 @@
 package basic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TreeUtil {
     /*
     树的结构示例：
@@ -76,6 +79,40 @@ public class TreeUtil {
             }
             System.out.println(sb.toString());
         }
+    }
+
+    /**
+     * Integer[] nodes = new Integer[]{3,5,1,6,2,0,8,null,null,7,4};
+     * Integer[] nodes = new Integer[]{0,null,1,null,2,null,3,4};
+     * 构建一个完全二叉树：只有最底层的节点未被填满，且最底层节点尽量靠左填充
+     * @param nodes
+     * @return
+     */
+    public static TreeNode buildCompleteBinaryTree(Integer[] nodes){
+        if(nodes == null || nodes.length == 0) return null;
+        List<TreeNode> nodeList = new ArrayList<>();
+        for(int i = 0; i < nodes.length; i++){
+            if(nodes[i] == null){
+                nodeList.add(null);
+            }else{
+                nodeList.add(new TreeNode(nodes[i]));
+            }
+        }
+        int temp = 0;
+        while(temp <= (nodes.length - 2) / 2) {  //注意这里，数组的下标是从零开始的
+            if(2 * temp + 1 < nodes.length) {
+                if(nodeList.get(temp) != null){
+                    nodeList.get(temp).left = nodeList.get(2 * temp + 1);
+                }
+            }
+            if(2 * temp + 2 < nodes.length) {
+                if(nodeList.get(temp) != null){
+                    nodeList.get(temp).right = nodeList.get(2 * temp + 2);
+                }
+            }
+            temp++;
+        }
+        return nodeList.get(0);
     }
 }
 
