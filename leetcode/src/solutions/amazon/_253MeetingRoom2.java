@@ -32,7 +32,7 @@ public class _253MeetingRoom2 {
         minEndHeap.offer(intervals[0][1]);
         //按会议开始时间遍历会议
         for(int i = 1; i < intervals.length; i++){
-            //如果当前会议的开始时间 >= 最早结束的时间，可以放到一个会议室中；所以修改当前堆中的最早结束时间
+            //如果当前会议的开始时间 晚于 最早结束的时间，可以放到一个会议室中；所以修改当前堆中的最早结束时间
             if(intervals[i][0] >= minEndHeap.peek()){
                 minEndHeap.poll();
             }

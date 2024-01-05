@@ -15,13 +15,13 @@ public class _252MeetingRoom {
         if(intervals.length == 0){
             return true;
         }
-        Arrays.sort(intervals, Comparator.comparingInt(interval -> interval[1]));
-        int[] earliestEndInterval = intervals[0];
-        for(int i = 1; i < intervals.length; i++){
-            if(earliestEndInterval[1] > intervals[i][0]){
+        Arrays.sort(intervals, Comparator.comparingInt(interval -> interval[0]));
+        int earliestEndTime = intervals[0][1];
+        for (int i = 1; i < intervals.length; i++) {
+            if(intervals[i][0] < earliestEndTime){
                 return false;
             }
-            earliestEndInterval = intervals[i];
+            earliestEndTime = intervals[i][1];
         }
         return true;
     }

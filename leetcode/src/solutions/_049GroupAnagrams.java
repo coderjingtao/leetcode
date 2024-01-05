@@ -14,26 +14,14 @@ public class _049GroupAnagrams {
      * 其中anagram是word排序后的结果
      */
     public List<List<String>> groupAnagrams(String[] strs) {
-
-        List<List<String>> res = new ArrayList<List<String>>();
-        Map<String,List<String>> map =  new HashMap<String,List<String>>();
-        //Create one map to store the sorted word as anagram in memory
-        for(String word: strs){
-            String anagram = sort(word);
-            List<String> group = map.getOrDefault(anagram, new ArrayList<String>());
-            group.add(word);
-            map.put(anagram, group);
+        Map<String,List<String>> map = new HashMap<>();
+        for(String word : strs){
+            char[] chars = word.toCharArray();
+            Arrays.sort(chars);
+            String key = new String(chars);
+            map.computeIfAbsent(key, list -> new ArrayList<>()).add(word);
         }
-        for(List<String> group: map.values()){
-            res.add(group);
-        }
-        return res;
-    }
-
-    private String sort(String str){
-        char[] arrStr= str.toCharArray();
-        Arrays.sort(arrStr);
-        return String.valueOf(arrStr);
+        return new ArrayList<>(map.values());
     }
 
     public static void main(String[] args) {
