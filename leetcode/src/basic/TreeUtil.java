@@ -1,7 +1,7 @@
 package basic;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class TreeUtil {
     /*
@@ -88,31 +88,34 @@ public class TreeUtil {
      * @param nodes
      * @return
      */
-    public static TreeNode buildCompleteBinaryTree(Integer[] nodes){
+    public static TreeNode buildLeetCodeBinaryTree(Integer[] nodes){
         if(nodes == null || nodes.length == 0) return null;
-        List<TreeNode> nodeList = new ArrayList<>();
-        for(int i = 0; i < nodes.length; i++){
-            if(nodes[i] == null){
-                nodeList.add(null);
-            }else{
-                nodeList.add(new TreeNode(nodes[i]));
-            }
-        }
-        int temp = 0;
-        while(temp <= (nodes.length - 2) / 2) {  //注意这里，数组的下标是从零开始的
-            if(2 * temp + 1 < nodes.length) {
-                if(nodeList.get(temp) != null){
-                    nodeList.get(temp).left = nodeList.get(2 * temp + 1);
+        int i = -1;
+        TreeNode root = new TreeNode(nodes[++i]);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            TreeNode node = queue.poll();
+            if(node != null){
+                if(i + 1 < nodes.length){
+                    Integer leftVal = nodes[++i];
+                    if(leftVal != null){
+                        TreeNode leftNode = new TreeNode(leftVal);
+                        node.left = leftNode;
+                        queue.offer(leftNode);
+                    }
+                }
+                if(i + 1 < nodes.length){
+                    Integer rightVal = nodes[++i];
+                    if(rightVal != null){
+                        TreeNode rightNode = new TreeNode(rightVal);
+                        node.right = rightNode;
+                        queue.offer(rightNode);
+                    }
                 }
             }
-            if(2 * temp + 2 < nodes.length) {
-                if(nodeList.get(temp) != null){
-                    nodeList.get(temp).right = nodeList.get(2 * temp + 2);
-                }
-            }
-            temp++;
         }
-        return nodeList.get(0);
+        return root;
     }
 }
 

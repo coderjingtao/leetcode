@@ -1,6 +1,6 @@
 package solutions;
 
-import basic.BinaryTree;
+import datastructure.tree.BinaryTree;
 import basic.TreeNode;
 import basic.TreeUtil;
 
@@ -47,9 +47,7 @@ public class _113PathSum2 {
 
     public static void main(String[] args) {
         _113PathSum2 test = new _113PathSum2();
-        BinaryTree bt = new BinaryTree();
-        bt.construct(new Integer[]{5,4,8,11,null,13,4,7,2,null,null,5,1});
-//        bt.construct(new Integer[]{1,2,2,3,null,null,3,4,null,null,4});
+        BinaryTree bt = new BinaryTree(new Integer[]{5,4,8,11,null,13,4,7,2,null,null,5,1});
         TreeUtil.show(bt.root);
         List<List<Integer>> paths = test.pathSum(bt.root,22);
         for(List<Integer> onepath: paths)

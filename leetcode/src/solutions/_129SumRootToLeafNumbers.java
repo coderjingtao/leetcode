@@ -1,11 +1,10 @@
 package solutions;
 
-import basic.BinaryTree;
+import datastructure.tree.BinaryTree;
 import basic.TreeNode;
 import basic.TreeUtil;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

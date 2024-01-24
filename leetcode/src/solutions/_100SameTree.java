@@ -1,8 +1,7 @@
 package solutions;
 
-import basic.BinaryTree;
+import datastructure.tree.BinaryTree;
 import basic.TreeNode;
-import basic.TreeUtil;
 
 /**
  * NO.100 Same Tree

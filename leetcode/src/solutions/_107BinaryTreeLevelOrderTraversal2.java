@@ -1,10 +1,8 @@
 package solutions;
 
-import basic.BinaryTree;
+import datastructure.tree.BinaryTree;
 import basic.TreeNode;
 import basic.TreeUtil;
-import javafx.util.Pair;
-import sun.reflect.generics.tree.Tree;
 
 import java.util.*;
 
