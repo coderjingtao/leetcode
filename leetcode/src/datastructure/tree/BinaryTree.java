@@ -14,14 +14,14 @@ public class BinaryTree {
 
     /**
      * 通过数组构建完全二叉树(Complete Binary Tree): 只有最底层的节点未被填满，且最底层节点尽量靠左填充
-     * @param array
+     * @param array 构建数组
      */
     public BinaryTree(int[] array){
-        List<TreeNode> nodeList = new LinkedList<TreeNode>();
+        List<TreeNode> nodeList = new LinkedList<>();
 
         // 将数组的值转换为node
-        for (int nodeIndex = 0; nodeIndex < array.length; nodeIndex++) {
-            nodeList.add(new TreeNode(array[nodeIndex]));
+        for (int i : array) {
+            nodeList.add(new TreeNode(i));
         }
 
         // 对除最后一个父节点按照父节点和孩子节点的数字关系建立二叉树
@@ -46,9 +46,9 @@ public class BinaryTree {
 
     /**
      * 构建基于LeetCode的Binary Tree
-     * 该BinaryTree的特点是，只给出不为null的节点的左右子节点，例如：[0,null,1,null,2,null,3,4]
+     * 该BinaryTree的特点是，只给出非null节点的左右子节点，例如：[0,null,1,null,2,null,3,4]
      * 相比于用完美二叉树(满二叉树)和null节点来构建普通二叉树，会省略存储一部分的null值
-     * @param nodes
+     * @param nodes 构建node数组
      */
     public BinaryTree(Integer[] nodes){
         if(nodes == null || nodes.length == 0) throw new RuntimeException("nodes cannot be empty");
